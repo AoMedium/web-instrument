@@ -20,6 +20,7 @@ const posStyles = {
   } as React.CSSProperties,
   right: {
     right: MARGIN,
+    justifyContent: "right",
   } as React.CSSProperties
 };
 

@@ -1,7 +1,11 @@
 import * as Tone from "tone";
 
-const synth = new Tone.Synth().toMaster();
+const synth = new Tone.PolySynth().toDestination();
 
-export function playSynth() {
-  synth.triggerAttackRelease("A4", "8n");
+export function playNote(note) {
+  synth.triggerAttack(note, Tone.now());
+}
+
+export function stopNote(note) {
+  synth.triggerRelease(note);
 }
