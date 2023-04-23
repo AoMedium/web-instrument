@@ -3,26 +3,29 @@ p {
 }
 
 button {
-  height: 60px;
-  width: 60px;
+  display: block;
+  height: 4em;
+  width: 4em;
 
   margin: 2px;
+  padding: 0;
+
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   
-  background-color: #1a1a1a;
-  
-  transition: border-color 0.2s;
+  transition: border-width 0.2s, border-color 0.2s;
 
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  color: #646cff;
   font-size: 12px;
   font-weight: 500;
-  font-family: inherit;
+}
+
+
+.black {
+  background-color: #1a1a1a;
+  color: #646cff;
+}
+
+.white {
+  background-color: #262a7e;
+  color: #8a90ff;
 }

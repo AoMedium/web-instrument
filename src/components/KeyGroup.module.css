@@ -1,3 +1,7 @@
 .group {
   position: absolute;
+  display: flex;
+  width: 45%;
+
+  flex-wrap: wrap-reverse;
 }
