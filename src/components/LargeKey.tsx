@@ -1,33 +1,34 @@
 import { TouchEvent, useRef, useState } from 'react';
 import Note from "../domain/Note";
-import "./Key.module.css";
 import { playNote, stopNote } from '../audio';
+import styles from "./Key.module.css";
 
 type Props = {
   note: Note
 }
 
+const pressedStyle = {
+  borderColor: "#646cff",
+  borderWidth: 4
+} as React.CSSProperties;
+
 export default function LargeKey(props: Props) {
 
   const isPressed = useRef(false);
-  const [count, setCount] = useState(0);
   const [style, setStyle] = useState({});
+
+  const keyClass = useRef(props.note.name.includes("#") ? styles.black : styles.white);
 
   function handleHitStart(e: React.MouseEvent<HTMLButtonElement, MouseEvent> | TouchEvent) {
     if (isPressed.current) {
       return;
     }
-    // TODO: may need separate functions to handle touch and click
     e.preventDefault();
 
     playNote(props.note.name);
     
     isPressed.current = true;
-    setCount(prevCount => prevCount += 1);
-    setStyle({
-      borderColor: "#646cff",
-      borderWidth: 4
-    } as React.CSSProperties);
+    setStyle(pressedStyle);
   }
 
   function handleHitEnd(e: React.MouseEvent<HTMLButtonElement, MouseEvent> | TouchEvent) {
@@ -37,7 +38,7 @@ export default function LargeKey(props: Props) {
 
     e.preventDefault();
 
-    stopNote(props.note.name);
+    stopNote(props.note.name, 0);
     
     isPressed.current = false;
     setStyle({});
@@ -45,7 +46,7 @@ export default function LargeKey(props: Props) {
 
   // If mousedown and enter, keep playing
   return (
-    <button style={style}
+    <button style={style} className={keyClass.current}
       onTouchStart={handleHitStart}
       onTouchEnd={handleHitEnd}
       onMouseDown={handleHitStart}
@@ -54,7 +55,7 @@ export default function LargeKey(props: Props) {
       >
 
       <p>{props.note.name}</p>
-      <p>{count}</p>
+      {/* <p>{count}</p> */}
     </button>
   );
 }

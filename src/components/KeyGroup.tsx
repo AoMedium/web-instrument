@@ -11,6 +11,7 @@ const MARGIN = 20;
 const posStyles = {
   top: {
     top: MARGIN,
+    alignContent: "top",
   } as React.CSSProperties,
   bottom: {
     bottom: MARGIN,
