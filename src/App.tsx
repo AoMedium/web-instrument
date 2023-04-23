@@ -1,12 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import KeyGroup from './components/KeyGroup';
 import LargeKey from './components/LargeKey';
 import Notes from './data/Notes';
 import { Edge } from './domain/Constants';
 import Note from './domain/Note';
-
-const OCTAVE_RANGE = [4,5];
 
 // const keys: Note[] = [];
 
