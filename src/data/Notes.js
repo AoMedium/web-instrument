@@ -1,3 +1,5 @@
-const Notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+const NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
-export default Notes;
+// ["C", "D", "D#", "F", "G", "A", "A#"];
+
+export default NOTES;

@@ -1,8 +1,8 @@
-p {
+.key p {
   margin: 0;
 }
 
-button {
+.key {
   display: block;
   height: 4em;
   width: 4em;

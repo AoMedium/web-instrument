@@ -1,0 +1,13 @@
+.settings button {
+  margin: 10px auto;
+  padding: 15px 20px;
+
+  background-color: #1a1a1a;
+
+  border-radius: 8px;
+  border: 0px solid transparent;
+
+  color: #646cff;
+  font-size: 12px;
+  font-weight: 500;
+}
