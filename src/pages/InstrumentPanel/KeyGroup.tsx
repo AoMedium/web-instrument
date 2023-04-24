@@ -1,4 +1,4 @@
-import { Edge } from "../domain/Constants";
+import { Edge } from "../../domain/Constants";
 import styles from "./KeyGroup.module.css";
 
 type Props = {

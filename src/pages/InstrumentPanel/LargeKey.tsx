@@ -1,7 +1,7 @@
 import { TouchEvent, useRef, useState } from 'react';
-import Note from "../domain/Note";
-import { playNote, stopNote } from '../audio';
-import styles from "./Key.module.css";
+import Note from "../../domain/Note";
+import { playNote, stopNote } from '../../audio';
+import styles from "./Keys.module.css";
 
 type Props = {
   note: Note
@@ -25,7 +25,7 @@ export default function LargeKey(props: Props) {
     }
     e.preventDefault();
 
-    playNote(props.note.name);
+    playNote(props.note.name, 0.1);
     
     isPressed.current = true;
     setStyle(pressedStyle);
@@ -46,7 +46,7 @@ export default function LargeKey(props: Props) {
 
   // If mousedown and enter, keep playing
   return (
-    <button style={style} className={keyClass.current}
+    <button style={style} className={`${styles.key} ${keyClass.current}`}
       onTouchStart={handleHitStart}
       onTouchEnd={handleHitEnd}
       onMouseDown={handleHitStart}
