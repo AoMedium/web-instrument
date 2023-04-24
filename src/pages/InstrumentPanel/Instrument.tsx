@@ -1,9 +1,8 @@
 import KeyGroup from './KeyGroup';
 import LargeKey from './LargeKey';
-import NOTES from '../../data/Notes';
 import { Edge } from '../../domain/Constants';
 import Note from '../../domain/Note';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NoteContext } from '../../context/NoteContextProvider';
 
 function createKeys(range: number[], notes: string[]) {

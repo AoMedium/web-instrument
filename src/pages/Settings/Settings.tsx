@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { ROOT_PATH } from "../../App";
 import NoteSelection from "./NoteSelection";
 import { useState } from "react";
