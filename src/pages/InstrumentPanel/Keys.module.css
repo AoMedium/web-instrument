@@ -4,14 +4,15 @@
 
 .key {
   display: block;
-  height: 4em;
-  width: 4em;
+  height: 3rem;
+  width: 3rem;
 
   margin: 2px;
   padding: 0;
 
+  border-color: var(--color1);
   border-radius: 8px;
-  border: 0px solid transparent;
+  border-width: 0;
   
   transition: border-width 0.2s, border-color 0.2s;
 
@@ -21,11 +22,11 @@
 
 
 .black {
-  background-color: #1a1a1a;
-  color: #646cff;
+  background-color: var(--color3);
+  color: white;
 }
 
 .white {
-  background-color: #262a7e;
-  color: #8a90ff;
+  background-color: var(--color2);
+  color: #ddd;
 }

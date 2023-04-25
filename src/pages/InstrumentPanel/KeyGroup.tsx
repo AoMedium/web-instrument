@@ -6,7 +6,7 @@ type Props = {
   children: JSX.Element[]
 }
 
-const MARGIN = 20;
+const MARGIN = 15;
 
 const posStyles = {
   top: {
@@ -21,7 +21,7 @@ const posStyles = {
   } as React.CSSProperties,
   right: {
     right: MARGIN,
-    justifyContent: "right",
+    // justifyContent: "right",
   } as React.CSSProperties
 };
 
