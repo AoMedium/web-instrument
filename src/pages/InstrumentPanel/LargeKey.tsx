@@ -8,7 +8,6 @@ type Props = {
 }
 
 const pressedStyle = {
-  borderColor: "#646cff",
   borderWidth: 4
 } as React.CSSProperties;
 

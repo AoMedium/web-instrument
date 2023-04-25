@@ -10,7 +10,7 @@ const options = {
     attack: 0.005,
     decay: 0,
     sustain: 1,
-    release: 5
+    release: 3
   }
 };
 
@@ -21,16 +21,15 @@ const synth = new Tone.PolySynth(Tone.Synth, options).toDestination();
 // synth.connect(filter);
 
 // var tremolo = new Tone.Vibrato({
-//   maxDelay: 0.005,
 //   frequency: 5,
 //   depth: 0.2,
-//   type: "sine"
 // }).toDestination();
 
 // synth.connect(tremolo);
 
 export function playNote(note, velocity) {
   synth.triggerAttack(note, Tone.now(), velocity);
+  console.log(synth.activeVoices);
 }
 
 export function stopNote(note, sustain) {

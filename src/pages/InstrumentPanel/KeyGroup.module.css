@@ -1,7 +1,13 @@
 .group {
   position: absolute;
   display: flex;
+  padding: 5px;
   width: 45%;
+
+  justify-content: center;
+
+  /* background-color: var(--color4); */
+  border-radius: 20px;
 
   flex-wrap: wrap-reverse;
 }
