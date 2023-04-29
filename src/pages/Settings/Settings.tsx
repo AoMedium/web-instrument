@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from './Settings.module.css';
 import NavButton from "../../components/NavButton";
 import VolumeSettings from "./VolumeSettings";
+import OctaveLayoutConfig from "./OctaveLayoutConfig";
 
 export default function SettingsPage() {
 
@@ -27,6 +28,7 @@ export default function SettingsPage() {
       <div className={styles.container}>
         <NoteSelection saveTrigger={saveTrigger} notifyChanges={notifyChanges}/>
         <VolumeSettings saveTrigger={saveTrigger} notifyChanges={notifyChanges}/>
+        <OctaveLayoutConfig saveTrigger={saveTrigger} notifyChanges={notifyChanges} />
       </div>
       <button onClick={save} disabled={!hasChanges}>Apply</button>
     </div>

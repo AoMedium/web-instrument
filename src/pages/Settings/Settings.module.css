@@ -12,16 +12,18 @@
   background-color: var(--color2);
 
   border-radius: 8px;
-  border: 0px solid transparent;
+  border: 2px solid;
+  border-color: var(--color2);
 
   color: white;
   font-size: 12px;
   font-weight: bold;
 
-  transition: background-color 0.5s;
+  transition: background-color 0.5s, border-color 0.5s;
 }
 .settings button:disabled {
-  background-color: #444;
+  background-color: transparent;
+  border-color: #444;
 }
 
 .settings ul {
@@ -37,10 +39,13 @@
 .settings h2 {
   margin: 0;
 }
+.settings h2:not(:first-child) {
+  margin-top: 40px
+}
 
 .container {
   margin: 20px;
   padding: 20px;
-  border: 1px solid var(--color1);
+  border: 1px solid var(--color2);
   border-radius: 10px;
 }

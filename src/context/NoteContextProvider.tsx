@@ -1,12 +1,16 @@
 import React, { useRef, useState } from "react";
 import NOTES from "../data/Notes";
+import OctaveLayout from "../domain/OctaveLayout";
 
 export interface NoteContextType {
   selectedNotes: string[]
   selectNotes: (notes: string[]) => void
 
-  useRelativeVolume: boolean;
+  useRelativeVolume: boolean
   setUseRelativeVolume: (value: boolean) => void
+
+  octaveLayout: OctaveLayout
+  setOctaveLayout: (layout: OctaveLayout) => void
 }
 
 const NoteContext = React.createContext<NoteContextType>({} as NoteContextType);
@@ -24,10 +28,16 @@ function NoteContextProvider(props: Props) {
     console.log("store save: " + notes);
   };
 
-  const useRelativeVolume = useRef<boolean>(false);
+  const useRelativeVolume = useRef<boolean>(true);
 
   const setUseRelativeVolume = (value: boolean) => {
     useRelativeVolume.current = value;
+  };
+
+  const octaveLayout = useRef<OctaveLayout>(new OctaveLayout(4,5,3,4));
+
+  const setOctaveLayout = (layout: OctaveLayout) => {
+    octaveLayout.current = layout;
   };
 
   console.log("context");
@@ -39,8 +49,10 @@ function NoteContextProvider(props: Props) {
         selectNotes,
 
         useRelativeVolume: useRelativeVolume.current,
-        setUseRelativeVolume
+        setUseRelativeVolume,
 
+        octaveLayout: octaveLayout.current,
+        setOctaveLayout,
       } 
     }>
       {props.children}

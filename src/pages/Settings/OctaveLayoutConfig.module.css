@@ -1,0 +1,14 @@
+.layoutInput {
+  display: grid;
+
+  grid-template-columns: 50% 50%;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.layoutInput > input {
+  text-align: center;
+
+  font-size: 15px;
+}
