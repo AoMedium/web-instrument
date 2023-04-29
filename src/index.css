@@ -17,6 +17,8 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #111;
 
+  overscroll-behavior: none;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -34,14 +36,17 @@
 }
 
 body {
-  margin: 0;
+  margin: auto 0;
   position: relative;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: -webkit-fill-available;
-
-  align-items: center;
+  
   justify-content: center;
 
   text-align: center;
+}
+
+#root {
+  width: 100%;
 }

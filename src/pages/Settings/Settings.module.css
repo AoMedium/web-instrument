@@ -1,13 +1,51 @@
+.settings {
+  margin: 0 40px;
+  padding: 40px 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .settings button {
   margin: 10px auto;
   padding: 15px 20px;
 
-  background-color: #222;
+  background-color: var(--color2);
 
   border-radius: 8px;
-  border: 0px solid transparent;
+  border: 2px solid;
+  border-color: var(--color2);
 
-  color: #646cff;
+  color: white;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: bold;
+
+  transition: background-color 0.5s, border-color 0.5s;
+}
+.settings button:disabled {
+  background-color: transparent;
+  border-color: #444;
+}
+
+.settings ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.settings h1 {
+  margin: 20px;
+}
+
+.settings h2 {
+  margin: 0;
+}
+.settings h2:not(:first-child) {
+  margin-top: 40px
+}
+
+.container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid var(--color2);
+  border-radius: 10px;
 }

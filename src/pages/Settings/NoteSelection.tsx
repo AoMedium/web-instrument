@@ -5,6 +5,7 @@ import { NoteContext } from "../../context/NoteContextProvider";
 
 type Props = {
   saveTrigger: number
+  notifyChanges: () => void
 }
 
 export default function NoteSelection(props : Props) {
@@ -46,6 +47,7 @@ export default function NoteSelection(props : Props) {
       newNotes.push(note);
     }
     setNotes(newNotes);
+    props.notifyChanges();
   }
 
   return (

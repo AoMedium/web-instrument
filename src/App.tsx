@@ -8,11 +8,12 @@ import { NoteContextProvider } from './context/NoteContextProvider';
 export const ROOT_PATH = '/web-instrument/';
 
 export default function App() {
+  // TODO: limit saving to just the option components that have been changed, rather than all
 
   return (
     <NoteContextProvider>
       <Routes>
-        <Route path={ROOT_PATH}> {/* element={<PageLayout />} */}
+        <Route path={ROOT_PATH} element={<PageLayout />}>
             <Route index element={<InstrumentPanel />} />
             <Route path='settings' element={<SettingsPage />} />
           <Route path='*' element={<NotFoundPage />} />

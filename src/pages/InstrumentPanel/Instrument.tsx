@@ -22,7 +22,7 @@ function createKeys(range: number[], notes: string[]) {
 // FIXME: freezes when more than 6 touches occur
 
 function Instrument() {
-  const {selectedNotes} = useContext(NoteContext);
+  const {selectedNotes, octaveLayout} = useContext(NoteContext);
 
   const [BL_KEYS, setBL_KEYS] = useState<Note[]>([]);
   const [TL_KEYS, setTL_KEYS] = useState<Note[]>([]);
@@ -33,10 +33,10 @@ function Instrument() {
     if (!selectedNotes) {
       return;
     }
-    setBL_KEYS(createKeys([3], selectedNotes));
-    setTL_KEYS(createKeys([4], selectedNotes));
-    setBR_KEYS(createKeys([4], selectedNotes));
-    setTR_KEYS(createKeys([5], selectedNotes));
+    setBL_KEYS(createKeys([octaveLayout.BL], selectedNotes));
+    setTL_KEYS(createKeys([octaveLayout.TL], selectedNotes));
+    setBR_KEYS(createKeys([octaveLayout.BR], selectedNotes));
+    setTR_KEYS(createKeys([octaveLayout.TR], selectedNotes));
   }, []);
 
   // const [output, setOutput] = useState("");
