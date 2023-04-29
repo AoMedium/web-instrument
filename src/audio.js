@@ -6,7 +6,7 @@ const options = {
   oscillator: {
     type: "triangle"
   },
-  envelope: {
+  envelope: { // FIXME: lowered volume during sustain
     attack: 0.005,
     decay: 0,
     sustain: 1,
@@ -27,8 +27,15 @@ const synth = new Tone.PolySynth(Tone.Synth, options).toDestination();
 
 // synth.connect(tremolo);
 
-export function playNote(note, velocity) {
-  synth.triggerAttack(note, Tone.now(), velocity);
+export function playNote(note, velocity, adjust=false) {
+  let adjustedVel = velocity;
+
+  if (adjust) {
+    let f = Tone.Frequency(note).toFrequency();
+    adjustedVel = 440 / f;
+  }
+
+  synth.triggerAttack(note, Tone.now(), adjustedVel);
   console.log(synth.activeVoices);
 }
 

@@ -4,6 +4,9 @@ import NOTES from "../data/Notes";
 export interface NoteContextType {
   selectedNotes: string[]
   selectNotes: (notes: string[]) => void
+
+  useRelativeVolume: boolean;
+  setUseRelativeVolume: (value: boolean) => void
 }
 
 const NoteContext = React.createContext<NoteContextType>({} as NoteContextType);
@@ -21,13 +24,23 @@ function NoteContextProvider(props: Props) {
     console.log("store save: " + notes);
   };
 
+  const useRelativeVolume = useRef<boolean>(false);
+
+  const setUseRelativeVolume = (value: boolean) => {
+    useRelativeVolume.current = value;
+  };
+
   console.log("context");
 
   return (
     <NoteContext.Provider value={
       {
         selectedNotes,
-        selectNotes
+        selectNotes,
+
+        useRelativeVolume: useRelativeVolume.current,
+        setUseRelativeVolume
+
       } 
     }>
       {props.children}
