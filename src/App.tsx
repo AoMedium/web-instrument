@@ -4,6 +4,7 @@ import InstrumentPanel from './pages/InstrumentPanel/InstrumentPanel';
 import NotFoundPage from './pages/NotFoundPage';
 import SettingsPage from './pages/Settings/Settings';
 import { NoteContextProvider } from './context/NoteContextProvider';
+import PageLayout from './components/PageLayout';
 
 export const ROOT_PATH = '/web-instrument/';
 

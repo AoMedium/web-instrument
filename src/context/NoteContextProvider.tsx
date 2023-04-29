@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import NOTES from "../data/Notes";
 import OctaveLayout from "../domain/OctaveLayout";
 

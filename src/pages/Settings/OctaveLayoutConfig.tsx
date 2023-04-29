@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { NoteContext } from "../../context/NoteContextProvider";
 import styles from './OctaveLayoutConfig.module.css';
 import OctaveLayout from "../../domain/OctaveLayout";
