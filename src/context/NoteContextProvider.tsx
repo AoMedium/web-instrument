@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import NOTES from "../data/Notes";
 import OctaveLayout from "../domain/OctaveLayout";
+import InstrumentType from "../domain/instruments/InstrumentType";
+import Synth from "../domain/instruments/Synth";
 
 export interface NoteContextType {
   selectedNotes: string[]
@@ -11,6 +13,9 @@ export interface NoteContextType {
 
   octaveLayout: OctaveLayout
   setOctaveLayout: (layout: OctaveLayout) => void
+
+  instrument: InstrumentType
+  setInstrument: (instrument: InstrumentType) => void
 }
 
 const NoteContext = React.createContext<NoteContextType>({} as NoteContextType);
@@ -40,7 +45,11 @@ function NoteContextProvider(props: Props) {
     octaveLayout.current = layout;
   };
 
-  console.log("context");
+  const [instrument, setInstrumentState] = useState<InstrumentType>(new Synth());
+
+  const setInstrument = (instrument: InstrumentType) => {
+    setInstrumentState(instrument);
+  };
 
   return (
     <NoteContext.Provider value={
@@ -53,6 +62,9 @@ function NoteContextProvider(props: Props) {
 
         octaveLayout: octaveLayout.current,
         setOctaveLayout,
+
+        instrument,
+        setInstrument
       } 
     }>
       {props.children}
