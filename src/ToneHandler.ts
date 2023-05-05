@@ -18,7 +18,12 @@ export default class ToneHandler {
   }
 
   public setInstrument(instrument: InstrumentType) {
+    // if (!this.instrument.getSynth().disposed) {
+    //   this.instrument.getSynth().dispose();
+    // }
+    
     this.instrument = instrument;
+    this.instrument.getSynth().toDestination();
   }
 
   public playNote(note: string, velocity: number, adjust=false) {

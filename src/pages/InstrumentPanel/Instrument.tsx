@@ -5,7 +5,6 @@ import Note from '../../domain/Note';
 import { useContext, useEffect, useState } from 'react';
 import { NoteContext } from '../../context/NoteContextProvider';
 import ToneHandler from '../../ToneHandler';
-import Piano from '../../domain/instruments/Piano';
 
 function createKeys(range: number[], notes: string[]) {
 

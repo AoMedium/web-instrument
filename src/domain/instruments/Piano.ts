@@ -39,6 +39,6 @@ export default class Piano extends InstrumentType {
       },
       release: 1,
       baseUrl: "https://tonejs.github.io/audio/salamander/"
-    }).toDestination());
+    }));
   }
 }

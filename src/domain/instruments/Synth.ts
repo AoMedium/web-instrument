@@ -16,7 +16,7 @@ export default class Synth extends InstrumentType {
         sustain: 1,
         release: 3
       }
-    }).toDestination());
+    }));
     
     this.type = type || "triangle";
   }

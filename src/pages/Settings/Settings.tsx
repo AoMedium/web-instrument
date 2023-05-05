@@ -2,17 +2,34 @@ import { ROOT_PATH } from "../../App";
 import NoteSelection from "./NoteSelection";
 import { useState } from "react";
 import styles from './Settings.module.css';
-import NavButton from "../../components/NavButton";
 import VolumeSettings from "./VolumeSettings";
 import OctaveLayoutConfig from "./OctaveLayoutConfig";
 import InstrumentSettings from "./InstrumentSettings";
+import { useNavigate } from "react-router-dom";
 
 export default function SettingsPage() {
+
+  const navigate = useNavigate();
 
   const [saveTrigger, setSaveTrigger] = useState(0);
   const [hasChanges, setHasChanges] = useState(false);
 
-  function save() {
+  function confirmExit() {
+    if (!hasChanges) {
+      navigate(ROOT_PATH);
+      return;
+    }
+
+    const exit = confirm("You have unsaved changes, do you wish to save them?");
+    
+    if (exit) {
+      save();
+      // FIXME: navigates away before changes are put into effect
+      // navigate(ROOT_PATH);
+    }
+  }
+
+  async function save() {
     setSaveTrigger(prev => prev += 1);
     setHasChanges(false);
     console.log(hasChanges);
@@ -24,7 +41,7 @@ export default function SettingsPage() {
 
   return (
     <div className={styles.settings}>
-      <NavButton to={ROOT_PATH}>🎹</NavButton>
+      <button onClick={confirmExit}>🎹</button>
       <h1>Settings</h1>
       <div className={styles.container}>
         <NoteSelection saveTrigger={saveTrigger} notifyChanges={notifyChanges}/>
