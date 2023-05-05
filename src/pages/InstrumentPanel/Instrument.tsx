@@ -4,6 +4,7 @@ import { Edge } from '../../domain/Constants';
 import Note from '../../domain/Note';
 import { useContext, useEffect, useState } from 'react';
 import { NoteContext } from '../../context/NoteContextProvider';
+import ToneHandler from '../../ToneHandler';
 
 function createKeys(range: number[], notes: string[]) {
 
@@ -22,7 +23,7 @@ function createKeys(range: number[], notes: string[]) {
 // FIXME: freezes when more than 6 touches occur
 
 function Instrument() {
-  const {selectedNotes, octaveLayout} = useContext(NoteContext);
+  const {selectedNotes, octaveLayout, instrument} = useContext(NoteContext);
 
   const [BL_KEYS, setBL_KEYS] = useState<Note[]>([]);
   const [TL_KEYS, setTL_KEYS] = useState<Note[]>([]);
@@ -37,6 +38,8 @@ function Instrument() {
     setTL_KEYS(createKeys([octaveLayout.TL], selectedNotes));
     setBR_KEYS(createKeys([octaveLayout.BR], selectedNotes));
     setTR_KEYS(createKeys([octaveLayout.TR], selectedNotes));
+
+    ToneHandler.getInstance().setInstrument(instrument);
   }, []);
 
   // const [output, setOutput] = useState("");

@@ -1,6 +1,6 @@
 import { TouchEvent, useContext, useRef, useState } from 'react';
 import Note from "../../domain/Note";
-import { playNote, stopNote } from '../../audio';
+import ToneHandler from '../../ToneHandler';
 import styles from "./Keys.module.css";
 import { NoteContext } from '../../context/NoteContextProvider';
 
@@ -13,6 +13,8 @@ const pressedStyle = {
 } as React.CSSProperties;
 
 export default function LargeKey(props: Props) {
+
+  const tone = ToneHandler.getInstance();
 
   const { useRelativeVolume } = useContext(NoteContext);
 
@@ -27,7 +29,7 @@ export default function LargeKey(props: Props) {
     }
     e.preventDefault();
 
-    playNote(props.note.name, 1, useRelativeVolume);
+    tone.playNote(props.note.name, 1, useRelativeVolume);
     
     isPressed.current = true;
     setStyle(pressedStyle);
@@ -40,7 +42,7 @@ export default function LargeKey(props: Props) {
 
     e.preventDefault();
 
-    stopNote(props.note.name, 0);
+    tone.stopNote(props.note.name, 0);
     
     isPressed.current = false;
     setStyle({});
