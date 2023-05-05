@@ -2,10 +2,8 @@ import * as Tone from "tone";
 import InstrumentType from "./InstrumentType";
 
 export default class Synth extends InstrumentType {
-
-  private type: string;
   
-  constructor(type?: "sine" | "square" | "triangle" | "sawtooth") {
+  constructor() {
     super("Synth", new Tone.PolySynth(Tone.Synth, {
       oscillator: {
         type: "triangle"
@@ -17,7 +15,5 @@ export default class Synth extends InstrumentType {
         release: 3
       }
     }));
-    
-    this.type = type || "triangle";
   }
 }
