@@ -29,7 +29,7 @@ export default function LargeKey(props: Props) {
     }
     e.preventDefault();
 
-    tone.playNote(props.note.name, 1, useRelativeVolume);
+    tone.playNote(props.note.name, 0.1, useRelativeVolume);
     
     isPressed.current = true;
     setStyle(pressedStyle);
