@@ -8,7 +8,9 @@ export default class ToneHandler {
   // TODO: need a better way to set default than this
   private instrument: InstrumentType = instruments[0];
 
-  private constructor() { return; }
+  private constructor() {
+    return;
+  }
 
   public static getInstance() {
     if (!ToneHandler.instance) {
@@ -21,19 +23,19 @@ export default class ToneHandler {
     // if (!this.instrument.getSynth().disposed) {
     //   this.instrument.getSynth().dispose();
     // }
-    
+
     this.instrument = instrument;
     this.instrument.getSynth().toDestination();
   }
 
-  public playNote(note: string, velocity: number, adjust=false) {
+  public playNote(note: string, velocity: number, adjust = false) {
     let adjustedVel = velocity;
-  
+
     if (adjust) {
       const f = Tone.Frequency(note).toFrequency();
-      adjustedVel = 440 / f;
+      adjustedVel = (velocity * 440) / f;
     }
-  
+
     this.instrument.getSynth().triggerAttack(note, Tone.now(), adjustedVel);
   }
 
